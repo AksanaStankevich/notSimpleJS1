@@ -110,3 +110,75 @@ const generateFizzBuzzArray = (count) => {
 console.log(generateFizzBuzzArray(100));
 console.log();
 console.log(generateFizzBuzzArray(10));
+
+/*
+5.Нужно написать функцию, которая проверяет, являются ли две строки анаграммами, причем регистр букв не имеет значения. Учитываются лишь символы; пробелы или знаки препинания в расчет не берутся.
+*/
+
+function checkAnagram(arr) {
+  if (!arr || arr.length <= 1) return false;
+  
+  let first_word = arr[0].split("").sort().join("");
+  
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].split("").sort().join("") != first_word) {
+           return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(checkAnagram(["elvis", "lives"])); 
+console.log(checkAnagram(["silent", "listen"])); 
+console.log(checkAnagram(["brother", "sister"])); 
+
+/*
+6. Нужно написать функцию, принимающую строку в качестве аргумента и возвращающую количество гласных, которые содержатся в строке. Гласными являются «a», «e», «i», «o», «u».
+*/
+
+function count() {
+    let k = 0;
+    let stringsearch = ['a', 'e', 'i', 'u', 'o'];
+    let f = prompt("Еnter the line to check");
+    for (let i = 0; i < f.length; i++)
+        for (let j = 0; j < stringsearch.length; j++)
+            if (f[i] === stringsearch[j]) {
+                ++k;
+                break;
+            }
+    return k ? k : "No matches";
+}
+
+console.log(count());
+
+/*
+7.Дан массив с числами. Не используя метода reverse переверните его элементы в обратном порядке.
+*/
+
+function reverseArray(array) {
+    let output = [];
+    while (array.length) {
+      output.push(array.pop());
+    }
+  
+    return output;
+  }
+  
+  console.log(reverseArray([25, 14, 9, 7, 38, 15]));
+
+/*
+8.Дан массив с числами. Найдите среднее арифметическое его элементов (сумма элементов, делить на количество)
+*/
+
+function findAverageArrayElements() {
+    let sum = 0;
+    for (let i = 0; i < arguments[i]; i++ ) sum += arguments[i];
+    return sum == 0 ? sum : sum / arguments.length;
+}
+
+console.log(findAverageArrayElements(2, 6, 8, 10, 12));
+
+/*
+9.Сделайте функцию inArray, которая определяет, есть в массиве элемент с заданным текстом или нет. Функция первым параметром должна принимать текст элемента, а вторым - массив, в котором делается поиск. Функция должна возвращать true или false.
+*/
